@@ -1,0 +1,36 @@
+.container {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.outer {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 150px !important;
+    max-height: 150px !important;
+    margin: auto;
+    border-radius: 50%;
+    position: relative;
+    background-size: 100px 100px;
+}
+
+.inner {
+    background-color: lightblue;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera-icon {
+    height: 30px;
+    width: 30px;
+    color: white;
+}
