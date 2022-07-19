@@ -7,13 +7,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+
+<ion-content color="primary">
   <form action="">
-    <ion-item lines="full">
+    <ion-item class="mx-2 my-2" lines="full">
       <ion-label position="floating">Name</ion-label>
       <ion-input type="text" required></ion-input>
     </ion-item>
-    <ion-list>
+    <ion-list class="mx-2 my-2">
+      <ion-label position="stacked">Enter Your gender</ion-label>
       <ion-item>
         <ion-select placeholder="Select Gender">
           <ion-select-option value="Male">Male</ion-select-option>
@@ -23,18 +26,29 @@
       </ion-item>
     </ion-list>
 
-    <ion-item lines="full">
-      <ion-label >Date Of Birth</ion-label>
+    <ion-item class="mx-2 my-2" lines="full">
+      <ion-label position="stacked">Date Of Birth</ion-label>
       <ion-input type="date" required></ion-input>
     </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
+    <ion-item class="mx-2 my-2" lines="full">
+      <ion-label position="floating">Permanent Address</ion-label>
       <ion-input type="text" required></ion-input>
     </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="text" required></ion-input>
+    <ion-item class="mx-2 my-2">
+      <ion-label position="floating" class="mb-2">Temporary Address</ion-label>
+      <ion-input type="text" [disabled]="addressDisabled" id="tempText"></ion-input>
     </ion-item>
+    <ion-checkbox (ionChange)="checkboxClick($event)" class="mx-1"></ion-checkbox>
+    <!-- <input type="checkbox" class="mx-3" checked="true" id="subscribe"> -->
+    <span class="address" class="mx-1 my-0">Same as permanent address</span>
+
+    
+    <ion-item class="mx-2 my-2">
+      <ion-label position="floating">Skills +</ion-label>
+      <ion-input (keyup.enter)="addingSkills($event)" type="text" id="text_input"></ion-input>
+      <p>{{text}}</p>
+    </ion-item>
+
     <ion-row>
       <ion-col>
         <ion-button type="submit" color="success" expand="block">Sign Up</ion-button>
