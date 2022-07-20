@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProfilePage } from '../profile/profile.page';
 
 @Component({
   selector: 'app-register',

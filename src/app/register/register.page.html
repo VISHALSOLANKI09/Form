@@ -1,23 +1,25 @@
-<ion-header>
+<ion-header color="primary">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Register</ion-title>
   </ion-toolbar>
+  
+  <!-- <app-profile></app-profile> -->
 </ion-header>
 
-<app-profile></app-profile>
+<app-profile position="stacked"class="h-20" style="background: #3880ff"></app-profile>
 
 <ion-content color="primary">
   <form action="">
-    <ion-item class="mx-2 my-2" lines="full">
+    <ion-item class="mx-2 my-2 ion-item" lines="full">
       <ion-label position="floating">Name</ion-label>
       <ion-input type="text" required></ion-input>
     </ion-item>
-    <ion-list class="mx-2 my-2">
+    <ion-list class="mx-2 my-2 ion-item">
       <ion-label position="stacked">Enter Your gender</ion-label>
-      <ion-item>
+      <ion-item class="ion-item">
         <ion-select placeholder="Select Gender">
           <ion-select-option value="Male">Male</ion-select-option>
           <ion-select-option value="Female">Female</ion-select-option>
@@ -26,15 +28,15 @@
       </ion-item>
     </ion-list>
 
-    <ion-item class="mx-2 my-2" lines="full">
+    <ion-item class="mx-2 my-2 ion-item" lines="full">
       <ion-label position="stacked">Date Of Birth</ion-label>
       <ion-input type="date" required></ion-input>
     </ion-item>
-    <ion-item class="mx-2 my-2" lines="full">
+    <ion-item class="mx-2 my-2 ion-item" lines="full">
       <ion-label position="floating">Permanent Address</ion-label>
       <ion-input type="text" required></ion-input>
     </ion-item>
-    <ion-item class="mx-2 my-2">
+    <ion-item class="mx-2 my-2 ion-item">
       <ion-label position="floating" class="mb-2">Temporary Address</ion-label>
       <ion-input type="text" [disabled]="addressDisabled" id="tempText"></ion-input>
     </ion-item>
@@ -43,7 +45,7 @@
     <span class="address" class="mx-1 my-0">Same as permanent address</span>
 
     
-    <ion-item class="mx-2 my-2">
+    <ion-item class="mx-2 my-2 ion-item">
       <ion-label position="floating">Skills +</ion-label>
       <ion-input (keyup.enter)="addingSkills($event)" type="text" id="text_input"></ion-input>
       <p>{{text}}</p>
