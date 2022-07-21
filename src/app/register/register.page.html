@@ -12,15 +12,20 @@
 <app-profile position="stacked"class="h-20" style="background: #3880ff"></app-profile>
 
 <ion-content color="primary">
-  <form action="">
+  <form [formGroup]="form" (ngSubmit)="saveFormData()">
     <ion-item class="mx-2 my-2 ion-item" lines="full">
       <ion-label position="floating">Name</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
+    <small *ngIf="form.get('name').invalid && (form.get('name').dirty ||form.get('name').touched )">
+      <small *ngIf="(form.get('name')).errors?.required">Name is required</small>
+      <!--question mark(?) is a safe navigation operator-->
+      <small *ngIf="(form.get('name')).errors?.minlength">Please enter more than 4 character</small>
+    </small>
     <ion-list class="mx-2 my-2 ion-item">
       <ion-label position="stacked">Enter Your gender</ion-label>
       <ion-item class="ion-item">
-        <ion-select placeholder="Select Gender">
+        <ion-select placeholder="Select Gender" formControlName="gender">
           <ion-select-option value="Male">Male</ion-select-option>
           <ion-select-option value="Female">Female</ion-select-option>
           <ion-select-option value="Others">Others</ion-select-option>
@@ -30,15 +35,15 @@
 
     <ion-item class="mx-2 my-2 ion-item" lines="full">
       <ion-label position="stacked">Date Of Birth</ion-label>
-      <ion-input type="date" required></ion-input>
+      <ion-input type="date" formControlName="dob"></ion-input>
     </ion-item>
     <ion-item class="mx-2 my-2 ion-item" lines="full">
       <ion-label position="floating">Permanent Address</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" formControlName="permanentAddress"></ion-input>
     </ion-item>
     <ion-item class="mx-2 my-2 ion-item">
       <ion-label position="floating" class="mb-2">Temporary Address</ion-label>
-      <ion-input type="text" [disabled]="addressDisabled" id="tempText"></ion-input>
+      <ion-input type="text" [disabled]="addressDisabled" id="tempText" formControlName="temporaryAddress"></ion-input>
     </ion-item>
     <ion-checkbox (ionChange)="checkboxClick($event)" class="mx-1"></ion-checkbox>
     <!-- <input type="checkbox" class="mx-3" checked="true" id="subscribe"> -->
@@ -47,7 +52,7 @@
     
     <ion-item class="mx-2 my-2 ion-item">
       <ion-label position="floating">Skills +</ion-label>
-      <ion-input (keyup.enter)="addingSkills($event)" type="text" id="text_input"></ion-input>
+      <ion-input (keyup.enter)="addingSkills($event)" type="text" id="text_input" formControlName="skills"></ion-input>
       <p>{{text}}</p>
     </ion-item>
 

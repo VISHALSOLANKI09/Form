@@ -1,10 +1,9 @@
-
-
   <div class="container">
-    <div class="outer" [ngStyle]="{'background-image': 'url('+ photo+')'}">
+    <div class="outer" [ngStyle]="{'background-image': 'url('+ finalPhoto+')'}">
       <div class="inner" (click)="openOptions()">
         <ion-icon name="camera" class="camera-icon"></ion-icon>
       </div>
+      <p>{{ message }}</p>
     </div>
   </div>
 

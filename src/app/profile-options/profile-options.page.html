@@ -1,4 +1,4 @@
-<ion-content (click)="closeModal()"></ion-content>
+<ion-content (click)=" confirm()"></ion-content>
 <ion-footer class="container">
   <h3 class="title" class="pl-2 pt-2">Profile Photo</h3>
   <ion-grid class="ion-padding-top">
@@ -14,7 +14,7 @@
 
       <ion-col size="3" class="ion-text-center" >
        <div class="galleryPhoto">
-          <ion-icon name="images" class="icon" (click)="takePhoto(0)"></ion-icon>
+          <ion-icon name="images" class="icon" (click)="takePhoto(0);"></ion-icon>
        </div>
        <p>
          Gallery
@@ -23,7 +23,7 @@
 
      <ion-col size="3" class="ion-text-center">
       <div class="cameraPhoto">
-        <ion-icon name="camera" class="icon" (click)="takePhoto(1)"></ion-icon>
+        <ion-icon name="camera" class="icon" (click)="takePhoto(1);"></ion-icon>
       </div>
       <p>
         Camera

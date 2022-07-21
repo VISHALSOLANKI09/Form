@@ -7,6 +7,7 @@ import { RegisterPageRoutingModule } from './register-routing.module';
 // import { ProfilePageModule } from '../profile/profile.module';
 import { RegisterPage } from './register.page';
 import { ProfilePage } from '../profile/profile.page';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { ProfilePage } from '../profile/profile.page';
     FormsModule,
     IonicModule,
     RegisterPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [RegisterPage, ProfilePage]
 })
