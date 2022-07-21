@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProfilePage } from '../profile/profile.page';
+import {FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
+
 
 @Component({
   selector: 'app-register',
@@ -11,8 +13,41 @@ export class RegisterPage implements OnInit {
   addressDisabled:boolean;
   isChecked;
   text='';
-  constructor(private router: Router) {
-  }
+  form: FormGroup;
+  submitted = false;
+  private database: SQLiteObject;
+
+  constructor(private router: Router,
+              private fb: FormBuilder,
+              private sqlite: SQLite) {
+              
+                // FormControl Names
+                this.form = this.fb.group({
+                  name: [null, [Validators.required, Validators.minLength(4)]],
+                  gender: [null, [Validators.required]],
+                  dob: [null, Validators.required],
+                  permanentAddress: [null, Validators.required],
+                  temporaryAddress: [null],
+                  skills: [null]
+                });
+                
+                // Creating Database
+                this.sqlite.create({
+                  name: 'items.db',
+                  location: 'default'
+                }).then()
+    }
+
+  /** Form Details Save */
+    saveFormData() {
+      this.submitted = true;
+      if(this.form.invalid) {
+        return;
+      }
+      alert('SUCCESS!!:- \n\n' + JSON.stringify(this.form.value, null, 4));
+    }
+
+  
 
   checkboxClick(e) {
     var statement = true;
