@@ -12,7 +12,7 @@
 <app-profile position="stacked"class="h-20" style="background: #3880ff"></app-profile>
 
 <ion-content color="primary">
-  <form [formGroup]="form" (ngSubmit)="saveFormData()">
+  <form [formGroup]="form" (ngSubmit)="saveFormData();">
     <ion-item class="mx-2 my-2 ion-item" lines="full">
       <ion-label position="floating">Name</ion-label>
       <ion-input type="text" formControlName="name"></ion-input>
@@ -52,7 +52,7 @@
     
     <ion-item class="mx-2 my-2 ion-item">
       <ion-label position="floating">Skills +</ion-label>
-      <ion-input (keyup.enter)="addingSkills($event)" type="text" id="text_input" formControlName="skills"></ion-input>
+      <ion-input (keyup.enter)="addingSkills($event)" type="text" id="text_input" formArrayName="skills"></ion-input>
       <p>{{text}}</p>
     </ion-item>
 

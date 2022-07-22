@@ -8,6 +8,7 @@ import { RegisterPageRoutingModule } from './register-routing.module';
 import { RegisterPage } from './register.page';
 import { ProfilePage } from '../profile/profile.page';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 
 @NgModule({
   imports: [
