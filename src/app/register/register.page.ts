@@ -13,10 +13,10 @@ import { exists } from 'fs';
 export class RegisterPage implements OnInit {
   addressDisabled:boolean;
   isChecked;
-  text='';
   form: FormGroup;
   submitted = false;
   private database: SQLiteObject;
+  text: string[] = [];
   users = [];
 
   constructor(private router: Router,
@@ -30,7 +30,7 @@ export class RegisterPage implements OnInit {
                   dob: [null, Validators.required],
                   permanentAddress: [null, Validators.required],
                   temporaryAddress: [null],
-                  skills: [null]
+                  skills: this.fb.array([])
                 });
                 
                 // Creating Database
@@ -93,7 +93,8 @@ export class RegisterPage implements OnInit {
   }
 
   addingSkills(e) {
-    this.text += e.target.value + " | ";
+    this.text.push(e.target.value);
+
     // var lastChar = this.text.slice(-1);
     // if(lastChar=='|') {
     //   this.text = this.text.slice(0, -1);

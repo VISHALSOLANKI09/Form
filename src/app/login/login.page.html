@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header color="primary">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
@@ -7,13 +7,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<app-profile position="stacked" class="h-20" style="background: #3880ff"></app-profile>
+
+<ion-content color="primary">
   <form action="">
-    <ion-item lines="full">
+    <ion-item class="mx-2 my-2 ion-item" lines="full">
       <ion-label position="floating">Email</ion-label>
       <ion-input type="text" required></ion-input>
     </ion-item>
-    <ion-item lines="full">
+    <ion-item class="mx-2 my-2 ion-item" lines="full">
       <ion-label position="floating">Password</ion-label>
       <ion-input type="text" required></ion-input>
     </ion-item>

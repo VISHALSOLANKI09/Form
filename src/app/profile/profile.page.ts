@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { $ } from 'protractor';
 import { Url } from 'url';
@@ -14,6 +14,7 @@ export class ProfilePage implements OnInit {
   message: string;
   photo: any;
   finalPhoto: any;
+  @Input() profileOptions: ProfileOptionsPage;
   constructor(private modalController: ModalController) { }
 
   async openOptions() {
@@ -27,18 +28,19 @@ export class ProfilePage implements OnInit {
     //   if(res.role==='confirm') {
     //     this.photo = res.data;
     //   }
-    // });
+    // // });
+    // this.photo = 'https://i.pravatar.cc/150';
      optionsModal.present();
      const { data, role } = await optionsModal.onWillDismiss();
      if(role === "confirm") {
       // this.photo = {data};
-      this.photo = `${data}`;
-      // this.photo = 'https://i.pravatar.cc/150';
+      // this.photo = `${data}`;
+      this.photo = 'https://i.pravatar.cc/150';
      }
   }
 
   ngOnInit() {
-    this.finalPhoto = this.photo;
+    this.finalPhoto = 'https://i.pravatar.cc/150';
   }
 
   async takePicture(type) {
